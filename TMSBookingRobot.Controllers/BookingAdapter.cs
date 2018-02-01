@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
+using TMSBookingRobot.Models;
 using TMSBookingRobot.Models.Booking;
 
 namespace TMSBookingRobot.Controllers
@@ -22,9 +24,9 @@ namespace TMSBookingRobot.Controllers
                 {
                     bookingQueueItems.Add(new BookingQueue()
                     {
-                        TrxNo = Convert.ToInt32(dr[0]),
-                        BookingNo = dr[1].ToString(),
-                        ShipperCode = dr[2].ToString()
+                        TrxNo = dr.GetValue<int>("TrxNo"),
+                        BookingNo = dr.GetValue<string>("BookingNo"),
+                        ShipperCode = dr.GetValue<string>("ShipperCode")
                     });
                 }
                 catch (Exception ex)
@@ -79,6 +81,8 @@ namespace TMSBookingRobot.Controllers
         {
             BookingControl bookingControlObj = null;
 
+            if (data == null || data.Tables.Count == 1) return bookingControlObj;
+
             try
             {
                 var table = data.Tables[0];
@@ -95,6 +99,7 @@ namespace TMSBookingRobot.Controllers
                     EndCustomerBranch = dr.GetValue<string>("EndCustomerBranch"),
                     Currency = dr.GetValue<string>("Currency"),
                     BookingType = dr.GetValue<string>("BookingType"),
+                    ServiceType = dr.GetValue<string>("ServiceType"),
                     BookingOffice = dr.GetValue<string>("BookingOffice"),
                     RouteFrom = dr.GetValue<string>("RouteFrom"),
                     RouteTo = dr.GetValue<string>("RouteTo"),
@@ -107,6 +112,36 @@ namespace TMSBookingRobot.Controllers
             catch (Exception ex) { Logger.ErrorLog("[BookingAdapter.cs][ConvertDataSetToBookingControl] " + ex.Message); }
 
             return bookingControlObj;
+        }
+
+        internal List<ExcelColumnAttributes> GetExcelColumnAttributes(Object classObj)
+        {
+            var attrExcelColumns = new List<ExcelColumnAttributes>();
+
+            foreach (var prop in classObj.GetType().GetProperties())
+            {
+                if (prop.GetCustomAttributes(typeof(ExcelColumnAttributes), true).Length > 0)
+                {
+                    var attrs = prop.GetCustomAttributes(true);
+                    var obj = (ExcelColumnAttributes)attrs[0];
+
+                    if (prop.PropertyType == typeof(DateTime))
+                    {
+                        var dateVal = prop.GetValue(classObj, null);
+                        obj.Tag = ((DateTime)dateVal).ToString("dd-MMM-yyyy HH:mm", new CultureInfo("en-US"));
+                        obj.CellType = "DateTime";
+                    }
+                    else
+                    {
+                        obj.Tag = prop.GetValue(classObj, null);
+                        obj.CellType = "Text";
+                    }
+
+                    attrExcelColumns.Add(obj);
+                }
+            }
+
+            return attrExcelColumns;
         }
     }
 }

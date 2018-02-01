@@ -9,5 +9,7 @@ namespace TMSBookingRobot.Models
         public int Width { get; set; }
         public int Index { get; set; }
         public bool Exclude { get; set; }
+        public object Tag { get; set; }
+        public string CellType { get; set; }
     }
 }

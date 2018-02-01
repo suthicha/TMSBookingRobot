@@ -43,6 +43,7 @@
     <Compile Include="Booking\BookingQueue.cs" />
     <Compile Include="Booking\BookingControl.cs" />
     <Compile Include="ExcelColumnAttributes.cs" />
+    <Compile Include="BaseClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
