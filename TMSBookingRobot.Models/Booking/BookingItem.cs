@@ -2,7 +2,7 @@
 
 namespace TMSBookingRobot.Models.Booking
 {
-    public class BookingItem
+    public class BookingItem : BaseClass
     {
         [ExcelColumnAttributes(
             Exclude = true,
@@ -123,5 +123,9 @@ namespace TMSBookingRobot.Models.Booking
             Width = 10
          )]
         public decimal Volume { get; set; }
+
+        public BookingItem()
+        {
+        }
     }
 }

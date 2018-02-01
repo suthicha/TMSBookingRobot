@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace TMSBookingRobot.Models.Booking
 {
-    public class BookingControl
+    public class BookingControl : BaseClass
     {
         [ExcelColumnAttributes(
             Exclude = true,
@@ -103,16 +104,34 @@ namespace TMSBookingRobot.Models.Booking
          )]
         public string Email { get; set; }
 
-        public List<BookingItem> Items { get; set; }
+        public List<BookingItem> Items { get { return _bookingItems; } }
+
+        private List<BookingItem> _bookingItems;
 
         public BookingControl()
         {
-            Items = new List<BookingItem>();
+            _bookingItems = new List<BookingItem>();
         }
 
         public int ItemCount()
         {
             return Items.Count;
+        }
+
+        public void AddItems(params BookingItem[] items)
+        {
+            _bookingItems.AddRange(items);
+        }
+
+        public void AddItem(BookingItem item)
+        {
+            _bookingItems.Add(item);
+        }
+
+        public void DeleteItem(BookingItem item)
+        {
+            var itemToRemove = _bookingItems.Single(q => q.Key == item.Key);
+            _bookingItems.Remove(itemToRemove);
         }
     }
 }
