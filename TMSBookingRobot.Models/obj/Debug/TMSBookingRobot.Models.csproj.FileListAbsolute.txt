@@ -1,5 +1,0 @@
-C:\Users\Administrator\Desktop\GitHub\TMSBookingRobot\TMSBookingRobot.Models\bin\Debug\TMSBookingRobot.Models.dll
-C:\Users\Administrator\Desktop\GitHub\TMSBookingRobot\TMSBookingRobot.Models\bin\Debug\TMSBookingRobot.Models.pdb
-C:\Users\Administrator\Desktop\GitHub\TMSBookingRobot\TMSBookingRobot.Models\obj\Debug\TMSBookingRobot.Models.csprojResolveAssemblyReference.cache
-C:\Users\Administrator\Desktop\GitHub\TMSBookingRobot\TMSBookingRobot.Models\obj\Debug\TMSBookingRobot.Models.dll
-C:\Users\Administrator\Desktop\GitHub\TMSBookingRobot\TMSBookingRobot.Models\obj\Debug\TMSBookingRobot.Models.pdb
