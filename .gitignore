@@ -6,3 +6,5 @@
 *.config
 *.conf
 *.log
+bin
+debug

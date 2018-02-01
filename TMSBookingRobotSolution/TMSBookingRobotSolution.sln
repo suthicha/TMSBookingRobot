@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMSBookingRobot.Controllers
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMSBookingRobot.TestApp", "..\TMSBookingRobot.TestApp\TMSBookingRobot.TestApp.csproj", "{F2EA0B0C-07E7-47BA-A6E1-293506764C2C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMSBookingRobot.WinService", "..\TMSBookingRobot.WinService\TMSBookingRobot.WinService.csproj", "{2CC2462D-BA65-4842-BE1F-C0198EB5CAC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F2EA0B0C-07E7-47BA-A6E1-293506764C2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2EA0B0C-07E7-47BA-A6E1-293506764C2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2EA0B0C-07E7-47BA-A6E1-293506764C2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CC2462D-BA65-4842-BE1F-C0198EB5CAC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CC2462D-BA65-4842-BE1F-C0198EB5CAC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CC2462D-BA65-4842-BE1F-C0198EB5CAC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CC2462D-BA65-4842-BE1F-C0198EB5CAC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
