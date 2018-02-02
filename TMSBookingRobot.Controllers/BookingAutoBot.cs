@@ -32,7 +32,7 @@ namespace TMSBookingRobot.Controllers
                 if (bookingJob == null) continue;
                 Logger.EventLog("[BookingController.cs][RunAutoBot] : Find job " + bookingQueueItem.BookingNo);
 
-                var destFileName = Path.Combine(_destFolder, bookingJob + ".xlsx");
+                var destFileName = Path.Combine(_destFolder, bookingJob.BookingNo + ".xlsx");
 
                 if (controller.ExportToExcel(bookingJob, destFileName))
                 {
