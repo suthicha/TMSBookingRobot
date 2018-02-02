@@ -10,8 +10,8 @@
 git clone https://github.com/suthicha/TMSBookingRobot.git
 ```
 ## Release History
-02.01.2018 Fix destination file variable. __
-01.01.2018 init project and testing. __
+02.01.2018 Fix destination file variable. <br />
+01.01.2018 init project and testing. <br />
 
 ## Meta
 
